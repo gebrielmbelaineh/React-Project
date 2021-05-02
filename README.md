@@ -2,7 +2,7 @@
 
 *Frontend Starter Pack*
 
-[deployed url](https://happy-engelbart-9c91c0.netlify.app/)
+[deployed url](https://loving-blackwell-aacba5.netlify.app/)
 
 ## What Worked Well
 
@@ -12,6 +12,9 @@ eslint is configured - it complains if there is bad code / autocorrects indents 
 webpage displays and counts seconds</br>
 image displays and is loaded via webpack </br>
 js is es6 and linted without errors! </br>
+react included </br>
+routing included </br>
+redux included</br>
 
 
 
