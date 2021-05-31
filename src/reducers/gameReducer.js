@@ -1,3 +1,5 @@
+import { ActionTypes } from '../actions/gamesActions';
+
 const initState = {
   popular: [],
   upcoming: [],
@@ -7,7 +9,7 @@ const initState = {
 
 const gameReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'FETCH_GAMES':
+    case ActionTypes.FETCH_GAMES:
       return {
         ...state,
         popular: action.payload.popular,

@@ -1,26 +1,46 @@
 import axios from 'axios';
-import { popularGamesURL, upcomingGamesURL, newGamesURL } from '../Api';
+import {
+  popularGamesURL, upcomingGamesURL, newGamesURL, gameDetailsURL, gameScreenshotURL,
+} from '../Api';
+
+export const ActionTypes = {
+  FETCH_GAMES: 'FETCH_GAMES',
+  GET_DETAIL: 'GET_DETAIL',
+  LOADING_DETAIL: 'LOADING_DETAIL',
+  ERROR_SET: 'ERROR_SET',
+};
 
 // Action Creator
 
-const loadGames = () => (dispatch) => {
-  axios.all([
-    axios.get(popularGamesURL()),
-    axios.get(upcomingGamesURL()),
-    axios.get(newGamesURL()),
-  ]).then(axios.spread((firstResponse, secondResponse, thirdResponse) => {
-    dispatch({
-      type: 'FETCH_GAMES',
+export const loadGames = () => async (dispatch) => {
+  const popularGames = await axios.get(popularGamesURL());
+  const upcomingGames = await axios.get(upcomingGamesURL());
+  const newGames = await axios.get(newGamesURL());
+
+  console.log('loadTest');
+
+  dispatch(
+    {
+      type: ActionTypes.FETCH_GAMES,
       payload: {
-        popular: firstResponse.data.results,
-        upcoming: secondResponse.data.results,
-        newGames: thirdResponse.data.results,
+        popular: popularGames.data.results,
+        upcoming: upcomingGames.data.results,
+        newGames: newGames.data.results,
       },
-    });
-  }))
-    .catch((error) => {
-      dispatch({ type: 'ERROR_SET', error });
-    });
+    },
+  );
 };
 
-export default loadGames;
+export const loadDetail = (id) => async (dispatch) => {
+  const detailData = await axios.get(gameDetailsURL(id));
+  const screenShotData = await axios.get(gameScreenshotURL(id));
+
+  console.log('loadDetailTest');
+  dispatch({
+    type: ActionTypes.GET_DETAIL,
+    payload: {
+      game: detailData.data,
+      screenshot: screenShotData.data,
+    },
+  });
+};

@@ -1,9 +1,105 @@
-body, html {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    height: 100%;
-    list-style-type: none;
-    color:darkslateblue;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
 
+html {
+
+    &::-webkit-scrollbar{
+      width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color: darkgrey;
+    }
+    &::-webkit-scrollbar-track{
+      background: white;
+    }
+}
+
+img{
+  display: block;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+h2{
+  font-size: 3rem;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: lighter;
+}
+h3 {
+  font-size: 1.3rem;
+  color:#333;
+  padding: 1.5rem 0rem; 
+}
+p{
+  font-size: 1.2rem;
+  line-height: 200%;
+  color: #696969;
+
+}
+a{
+  text-decoration: none;
+  color:#333;
+}
+.card-shadow{
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  &::-webkit-scrollbar{
+    width: 0.5rem;
   }
+  &::-webkit-scrollbar-thumb{
+    background-color: #333;
+  }
+  &::-webkit-scrollbar-track{
+    background: white;
+  }
+}
+.detail {
+  width: 80%;
+  border-radius: 1rem;
+  padding: 2rem 5rem;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  color: black;
+  img{
+    width: 100%
+  }
+}
+
+.stats{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info{
+  text-align: center;
+}
+.platforms{
+  display: flex;
+  justify-content: space-evenly;
+  img{
+    margin-left: 3rem;
+  }
+}
+
+.media {
+  margin-top: 5rem;
+  img{
+    width:100%;
+  }
+}
+
+.description{
+  margin: 5rem 0rem;
+}
